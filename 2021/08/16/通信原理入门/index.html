@@ -20,16 +20,18 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="通过《深入浅出通信原理》一书，进行通信原理的简单入门学习。">
+  <meta name="description" content="通过《深入浅出通信原理》深入浅出通信原理（通信人家园）一书，进行通信原理的简单入门学习。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="通信原理入门">
 <meta property="og:url" content="http://example.com/2021/08/16/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86%E5%85%A5%E9%97%A8/index.html">
 <meta property="og:site_name" content="HardStone">
-<meta property="og:description" content="通过《深入浅出通信原理》一书，进行通信原理的简单入门学习。">
+<meta property="og:description" content="通过《深入浅出通信原理》深入浅出通信原理（通信人家园）一书，进行通信原理的简单入门学习。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/PoC/s1.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/PoC/s2.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/PoC/s3.png">
 <meta property="article:published_time" content="2021-08-15T17:05:18.000Z">
-<meta property="article:modified_time" content="2021-08-15T17:38:22.820Z">
+<meta property="article:modified_time" content="2021-08-16T05:09:24.124Z">
 <meta property="article:author" content="HardStoneqwq">
 <meta property="article:tag" content="编程,硬件,工具">
 <meta name="twitter:card" content="summary">
@@ -187,7 +189,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-08-16 01:05:18 / 修改时间：01:38:22" itemprop="dateCreated datePublished" datetime="2021-08-16T01:05:18+08:00">2021-08-16</time>
+              <time title="创建时间：2021-08-16 01:05:18 / 修改时间：13:09:24" itemprop="dateCreated datePublished" datetime="2021-08-16T01:05:18+08:00">2021-08-16</time>
             </span>
 
           
@@ -201,11 +203,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>通过《深入浅出通信原理》一书，进行通信原理的简单入门学习。</p>
+        <p>通过《深入浅出通信原理》<a target="_blank" rel="noopener" href="https://www.txrjy.com/thread-394879-1-1.html">深入浅出通信原理（通信人家园）</a>一书，进行通信原理的简单入门学习。</p>
 <span id="more"></span>
 
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ol>
-<li>Modem</li>
+<li><strong>Modem</strong></li>
 </ol>
 <blockquote>
 <p>调制解调器，即“猫”，将数字信号转换为可沿电话线传送的脉冲信号(模拟电信号)。</p>
@@ -218,6 +220,45 @@
 </ul>
 <img src="https://zerostione.github.io/ImageUp//Image/Blog/PoC/s1.png" style="zoom: 80%;" />
 
+<ol start="2">
+<li><strong>虚数j</strong></li>
+</ol>
+<blockquote>
+<p>一个复数与j相乘相当于该复数对应向量在复平面上逆时针旋转90^。^。</p>
+</blockquote>
+<img src="https://zerostione.github.io/ImageUp//Image/Blog/PoC/s2.png" style="zoom: 80%;" />
+
+<ol start="3">
+<li><strong>卷积</strong></li>
+</ol>
+<blockquote>
+<ol>
+<li><p>两个周期信号相乘可以转化为两个多项式相乘，多项式的系数就是傅里叶系数。。</p>
+</li>
+<li><p>两个多项式乘积的系数等于这两个多项式系数的卷积。</p>
+</li>
+<li><p>两个周期信号相乘相当于这两个周期信号的傅里叶系数做卷积。</p>
+</li>
+</ol>
+</blockquote>
+<img src="https://zerostione.github.io/ImageUp//Image/Blog/PoC/s3.png" style="zoom: 80%;" />
+
+<blockquote>
+<ol>
+<li>反褶：将多项式的各项按x的升幂排列。</li>
+<li>平移：将多项式每次向右平移一个项。</li>
+<li>相乘：垂直对齐的项分别相乘。</li>
+<li>求和：相乘的各结果相加。</li>
+</ol>
+</blockquote>
+<hr>
+<h2 id="通信原理概述"><a href="#通信原理概述" class="headerlink" title="通信原理概述"></a>通信原理概述</h2><ol>
+<li><strong>通信：信息的传递和交流。</strong></li>
+</ol>
+<blockquote>
+<p>广义的通信：只要将信息从一地传送到另一地，即可称为通信。</p>
+<p>狭义的通信：电信和广播电视。</p>
+</blockquote>
 
     </div>
 
@@ -295,7 +336,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86%E6%A6%82%E8%BF%B0"><span class="nav-number">2.</span> <span class="nav-text">通信原理概述</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
