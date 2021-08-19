@@ -216,18 +216,15 @@
       
         <p>通过config和ssh的设置可以实现客户端多Github账号使用。</p>
 <span id="more"></span>
-
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ol>
 <li>推荐全程使用<code>Git Bash</code>进行操作。</li>
 </ol>
 <h2 id="取消全局配置"><a href="#取消全局配置" class="headerlink" title="取消全局配置"></a>取消全局配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global --<span class="built_in">unset</span> user.name</span><br><span class="line">git config --global --<span class="built_in">unset</span> user.eamil</span><br></pre></td></tr></table></figure>
-
 <hr>
 <h2 id="生成密钥"><a href="#生成密钥" class="headerlink" title="生成密钥"></a>生成密钥</h2><ol>
 <li><strong>生成密钥</strong></li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;your email1&quot;</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;your email2&quot;</span> </span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <ol>
 <li><code>id_rsa</code>私钥</li>
@@ -236,50 +233,55 @@
 </ol>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">&quot;your email2&quot;</span></span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file <span class="keyword">in</span> <span class="built_in">which</span> to save the key (<span class="comment">#your first rsa path): #更换路径进行修改</span></span><br></pre></td></tr></table></figure>
-
-<ol start="2">
+<ol>
 <li><p><strong>分别将各自公钥<code>*.pub</code>添加至不同的Github账户中</strong>  <a target="_blank" rel="noopener" href="https://github.com/settings/keys">SSH and GPG keys</a></p>
 </li>
 <li><p><strong>添加私钥</strong></p>
 <ul>
 <li><p>启动ssh-agent</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-agent bash</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-agent bash</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>删除之前的key</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-add -D</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-add -D</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>添加私钥(id_rsa_1即之前指定生成的密钥名）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh-add ~/.ssh/id_rsa_1</span><br><span class="line">ssh-add ~/.ssh/id_rsa_2</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh-add ~/.ssh/id_rsa_1</span><br><span class="line">ssh-add ~/.ssh/id_rsa_2</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>查看所有key</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-add -l</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-add -l</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
 </ol>
 <hr>
 <h2 id="config文件配置"><a href="#config文件配置" class="headerlink" title="config文件配置"></a>config文件配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#在 ~/.ssh下新建config文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#GitHub User1</span></span><br><span class="line">Host User1GithubName.github.com</span><br><span class="line">HostName github.com <span class="comment">#Gitee gitee.com</span></span><br><span class="line">User User1GithubName</span><br><span class="line">IdentityFile ~/.ssh/id_rsa_1</span><br><span class="line"></span><br><span class="line"><span class="comment">#GitHub User1</span></span><br><span class="line">Host User2GithubName.github.com</span><br><span class="line">HostName github.com</span><br><span class="line">User User1GithubName</span><br><span class="line">IdentityFile ~/.ssh/id_rsa_2</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>ssh通过不同的Host区分不同的Github账号，再通过Host对应的私钥与Github远程仓库连接。</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#测试ssh连接ssh -T git@GitHubUserName1.github.comssh -T git@GitHubUserName2.github.com#成功Hi GitHubUserName! You&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span></span><br></pre></td></tr></table></figure>
-
 <hr>
 <h2 id="本地配置"><a href="#本地配置" class="headerlink" title="本地配置"></a>本地配置</h2><ol>
 <li><strong>选择ssh下载</strong></li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@GitHubUserName1.github.com:GitHubUserName1/GitHubUserName1.github.io.git</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
+<ol>
 <li><p>远程仓库操作</p>
 <ul>
 <li><p>显示所有远程仓库</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote -v#输出origin  git@GitHubUserName1.github.com:GitHubUserName1/GitHubUserName1.github.io.git (fetch)origin  git@GitHubUserName1.github.com:GitHubUserName1/GitHubUserName1.github.io.git (push)</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote -v#输出origin  git@GitHubUserName1.github.com:GitHubUserName1/GitHubUserName1.github.io.git (fetch)origin  git@GitHubUserName1.github.com:GitHubUserName1/GitHubUserName1.github.io.git (push)</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>否则需要</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote rm origin <span class="comment">#删除远程仓库原origingit remote add origin</span></span><br><span class="line">git@GitHubUserName1.github.com:GitHubUserName1/GitHubUserName1.github.com.git <span class="comment">#将远程仓库重新命名为origin</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote rm origin <span class="comment">#删除远程仓库原origingit remote add origin</span></span><br><span class="line">git@GitHubUserName1.github.com:GitHubUserName1/GitHubUserName1.github.com.git <span class="comment">#将远程仓库重新命名为origin</span></span><br></pre></td></tr></table></figure>
+</li>
 <li><p>配置本地仓库</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config  user.name <span class="string">&quot;GithubName&quot;</span>          git config  user.email <span class="string">&quot;GithubEmail&quot;</span>  <span class="comment">#查看git项目配置git config -l</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config  user.name <span class="string">&quot;GithubName&quot;</span>          git config  user.email <span class="string">&quot;GithubEmail&quot;</span>  <span class="comment">#查看git项目配置git config -l</span></span><br></pre></td></tr></table></figure>
+</li>
 <li><p>提交</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>hexo配置</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">repo: git@github.com:GitHubUserName/GitHubUserName1.github.io.gitrepo: git@GitHubUserName.github.com:GitHubUserName1/GitHubUserName1.github.io.git</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">repo: git@github.com:GitHubUserName/GitHubUserName1.github.io.gitrepo: git@GitHubUserName.github.com:GitHubUserName1/GitHubUserName1.github.io.git</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
 </ol>
