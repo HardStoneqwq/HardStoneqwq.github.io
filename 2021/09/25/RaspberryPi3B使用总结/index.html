@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source Sans Pro:300,300italic,400,400italic,700,700italic|Monda:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="树莓派Raspberry Pi英国树莓派基金会开发的微型单板计算机，目的是以低价硬件及自由软件促进学校的基本计算机科学教育。树莓派系列计算机每一代均使用博通（Broadcom）出产的ARM架构处理器，如今生产的机型（树莓派4B）内存在2GB和8GB之间，主要TF卡作为系统存储媒体（初代使用SD卡），配备USB接口和HDMI的视频输出（支持声音输出），内置Ethernet&#x2F;WLAN&#x2F;Bluetoot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RaspberryPi3B使用总结">
+<meta property="og:url" content="http://example.com/2021/09/25/RaspberryPi3B%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="HardStone">
+<meta property="og:description" content="树莓派Raspberry Pi英国树莓派基金会开发的微型单板计算机，目的是以低价硬件及自由软件促进学校的基本计算机科学教育。树莓派系列计算机每一代均使用博通（Broadcom）出产的ARM架构处理器，如今生产的机型（树莓派4B）内存在2GB和8GB之间，主要TF卡作为系统存储媒体（初代使用SD卡），配备USB接口和HDMI的视频输出（支持声音输出），内置Ethernet&#x2F;WLAN&#x2F;Bluetoot">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Rasp/p1.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Rasp/pico.jpg">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Rasp/4b.jpg">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Rasp/3a+.jpg">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Rasp/3b+.jpg">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Rasp/3b.jpg">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Rasp/1b+.jpg">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Rasp/1a+.jpg">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Rasp/zerow.jpg">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Rasp/zero.jpg">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Rasp/p2.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Rasp/arch.png">
+<meta property="article:published_time" content="2021-09-25T13:08:59.000Z">
+<meta property="article:modified_time" content="2021-09-25T14:10:29.411Z">
+<meta property="article:author" content="HardStoneqwq">
+<meta property="article:tag" content="RaspberryPi3B">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Rasp/p1.png">
+
+<link rel="canonical" href="http://example.com/2021/09/25/RaspberryPi3B%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>RaspberryPi3B使用总结 | HardStone</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">HardStone</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/25/RaspberryPi3B%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://zerostione.github.io/ImageUp//Image/Blog/Use/au.jpg">
+      <meta itemprop="name" content="HardStoneqwq">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HardStone">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          RaspberryPi3B使用总结
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-09-25 21:08:59 / 修改时间：22:10:29" itemprop="dateCreated datePublished" datetime="2021-09-25T21:08:59+08:00">2021-09-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hardware/" itemprop="url" rel="index"><span itemprop="name">hardware</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>树莓派<a target="_blank" rel="noopener" href="https://www.raspberrypi.org/">Raspberry Pi</a>英国树莓派基金会开发的微型单板计算机，目的是以低价硬件及自由软件促进学校的基本计算机科学教育。树莓派系列计算机每一代均使用博通（Broadcom）出产的ARM架构处理器，如今生产的机型（树莓派4B）内存在2GB和8GB之间，主要TF卡作为系统存储媒体（初代使用SD卡），配备USB接口和HDMI的视频输出（支持声音输出），内置Ethernet/WLAN/Bluetooth网络链接的方式（依据型号决定），并且可使用多种操作系统。产品线型号分为A型、B型、Zero型和ComputeModule计算卡。Raspberry Pi OS是官方推出的操作系统，适用于所有型号的树莓派，树莓派基金会网站也提供了Ubuntu MATE、Ubuntu Core、Ubuntu Server、OSMC等第三方系统供大众下载。</p>
+<p><img src="https://zerostione.github.io/ImageUp//Image/Blog/Rasp/p1.png" style="zoom: 50%;" /></p>
+<span id="more"></span>
+<h1 id="Raspberry-Pi-computers"><a href="#Raspberry-Pi-computers" class="headerlink" title="Raspberry Pi computers"></a>Raspberry Pi computers</h1><p>Raspberry Pi Pico</p>
+<p><img src="https://zerostione.github.io/ImageUp//Image/Blog/Rasp/pico.jpg" style="zoom: 80%;" /></p>
+<hr>
+<p>Raspberry Pi 4 Model B</p>
+<p><img src="https://zerostione.github.io/ImageUp//Image/Blog/Rasp/4b.jpg" style="zoom: 80%;" /></p>
+<hr>
+<p>Raspberry Pi 3 Model A+</p>
+<p><img src="https://zerostione.github.io/ImageUp//Image/Blog/Rasp/3a+.jpg" style="zoom: 80%;" /></p>
+<hr>
+<p>Raspberry Pi 3 Model B+</p>
+<p><img src="https://zerostione.github.io/ImageUp//Image/Blog/Rasp/3b+.jpg" style="zoom: 80%;" /></p>
+<hr>
+<p>Raspberry Pi 3 Model B</p>
+<p><img src="https://zerostione.github.io/ImageUp//Image/Blog/Rasp/3b.jpg" style="zoom: 80%;" /></p>
+<hr>
+<p>Raspberry Pi 1 Model B+</p>
+<p><img src="https://zerostione.github.io/ImageUp//Image/Blog/Rasp/1b+.jpg" style="zoom: 80%;" /></p>
+<hr>
+<p>Raspberry Pi 1 Model A+</p>
+<p><img src="https://zerostione.github.io/ImageUp//Image/Blog/Rasp/1a+.jpg" style="zoom: 80%;" /></p>
+<hr>
+<p>Raspberry Pi Zero W</p>
+<p><img src="https://zerostione.github.io/ImageUp//Image/Blog/Rasp/zerow.jpg" style="zoom: 80%;" /></p>
+<hr>
+<p>Raspberry Pi Zero</p>
+<p><img src="https://zerostione.github.io/ImageUp//Image/Blog/Rasp/zero.jpg" style="zoom: 80%;" /></p>
+<hr>
+<h1 id="Install-system"><a href="#Install-system" class="headerlink" title="Install system"></a>Install system</h1><h2 id="Raspberry-Pi-OS"><a href="#Raspberry-Pi-OS" class="headerlink" title="Raspberry Pi OS"></a>Raspberry Pi OS</h2><p><img src="https://zerostione.github.io/ImageUp//Image/Blog/Rasp/p2.png" style="zoom: 80%;" /></p>
+<p>1.下载<a target="_blank" rel="noopener" href="https://sourceforge.net/projects/win32diskimager/">win32diskimager</a>或者<a target="_blank" rel="noopener" href="http://rufus.ie/zh/">Rufus</a></p>
+<p>2.将官网的<a target="_blank" rel="noopener" href="https://www.raspberrypi.org/software/operating-systems/#raspberry-pi-os-32-bit">Raspberry Pi OS</a>的img映像文件写入tf卡即可。</p>
+<p>3.将树莓派插入tf卡即可</p>
+<hr>
+<h2 id="ArchLinuxArm"><a href="#ArchLinuxArm" class="headerlink" title="ArchLinuxArm"></a>ArchLinuxArm</h2><p><img src="https://zerostione.github.io/ImageUp//Image/Blog/Rasp/arch.png" style="zoom: 50%;" /></p>
+<p><a target="_blank" rel="noopener" href="https://archlinuxarm.org/wiki/Raspberry_Pi">Arch Linux ARM</a></p>
+<p>使用VmwareLinux虚拟机，插入含有tf卡的读卡器，选择接入Vitual machine(虚拟机)</p>
+<p><strong>1.分区</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lsblk <span class="comment">#列出所有可用块设备的信息</span></span><br><span class="line">sudo cfdisk /dev/sdb</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>1.使用lsblk，一般sdb为tf卡（存储容量）。</p>
+<p>2.使用cfdisk分区：（左右键选择操作，上下键选择分区，回车确认）</p>
+<ul>
+<li>Delet所有已有分区<ul>
+<li>New一个primary分区（1000M）</li>
+<li>将剩下free space全部新建一个primary分区</li>
+<li>Type修改第一个分区类型为W95 FAT32(LBA)</li>
+<li>Write</li>
+<li>Quit</li>
+</ul>
+</li>
+</ul>
+<p>3.使用lsblk查看可以发现sdb下出现sdb1 sdb2两个分区。</p>
+<p>注：部分tf卡会lsblk仍然只有一个分区，此时弹出重新插入虚拟机即可。</p>
+</blockquote>
+<p><strong>2.挂载和格式化分区</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 格式化boot分区并挂载</span></span><br><span class="line">sudo mkfs.vfat /dev/sdb1</span><br><span class="line">mkdir boot</span><br><span class="line">sudo mount /dev/sdX1 boot</span><br><span class="line"></span><br><span class="line"><span class="comment"># 格式化root分区并挂载</span></span><br><span class="line">sudo mkfs.ext4 /dev/sdb2</span><br><span class="line">mkdir root</span><br><span class="line">sudo mount /dev/sdX2 root</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>lsblk可再次查看设备发现sdb分区出现root/boot分区信息。</p>
+</blockquote>
+<p><strong>3.下载并安装系统</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">wget https://mirrors.tuna.tsinghua.edu.cn/archlinuxarm/os/ArchLinuxARM-rpi-2-latest.tar.gz</span><br><span class="line"></span><br><span class="line">su</span><br><span class="line">bsdtar -xpf ArchLinuxARM-rpi-2-latest.tar.gz -C root</span><br><span class="line">sync</span><br><span class="line"></span><br><span class="line">cp root/boot/* boot</span><br><span class="line">umount boot root</span><br></pre></td></tr></table></figure>
+<p><strong>4.配置archlinux</strong></p>
+<p>初始账号：alarm password:alarm，root password:root</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#连接wifi,选择后回车即可</span></span><br><span class="line">wifi-menu</span><br><span class="line">ping www.baidu.com <span class="comment">#ping通网络即可</span></span><br><span class="line"></span><br><span class="line">vim  /etc/pacman.d/mirrorlist</span><br><span class="line"><span class="comment">#在文件前面添加清华镜像 Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxarm/$arch/$repo</span></span><br><span class="line">pacman-key --init</span><br><span class="line">pacman-key --populate archlinuxarm</span><br></pre></td></tr></table></figure>
+<hr>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/RaspberryPi3B/" rel="tag"># RaspberryPi3B</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/09/09/MySQL%E5%85%A5%E9%97%A8/" rel="prev" title="MySQL入门">
+      <i class="fa fa-chevron-left"></i> MySQL入门
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Raspberry-Pi-computers"><span class="nav-number">1.</span> <span class="nav-text">Raspberry Pi computers</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Install-system"><span class="nav-number">2.</span> <span class="nav-text">Install system</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Raspberry-Pi-OS"><span class="nav-number">2.1.</span> <span class="nav-text">Raspberry Pi OS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ArchLinuxArm"><span class="nav-number">2.2.</span> <span class="nav-text">ArchLinuxArm</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="HardStoneqwq"
+      src="https://zerostione.github.io/ImageUp//Image/Blog/Use/au.jpg">
+  <p class="site-author-name" itemprop="name">HardStoneqwq</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HardStoneqwq</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
