@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Vim/p1.png">
 <meta property="article:published_time" content="2021-09-07T15:54:03.000Z">
-<meta property="article:modified_time" content="2021-09-25T14:55:31.050Z">
+<meta property="article:modified_time" content="2021-09-30T10:44:37.630Z">
 <meta property="article:author" content="HardStoneqwq">
 <meta property="article:tag" content="Vim">
 <meta name="twitter:card" content="summary">
@@ -193,7 +193,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-25 22:55:31" itemprop="dateModified" datetime="2021-09-25T22:55:31+08:00">2021-09-25</time>
+                <time title="修改时间：2021-09-30 18:44:37" itemprop="dateModified" datetime="2021-09-30T18:44:37+08:00">2021-09-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -242,25 +242,122 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set cursorline</span><br></pre></td></tr></table></figure>
 <p>6.<strong>显示括号匹配</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set showmatch</span><br></pre></td></tr></table></figure>
-<p>7.<strong>设置缩进</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">设置Tab长度</span><br><span class="line">set tabstop=4</span><br><span class="line">设置自动缩进长度</span><br><span class="line">set shiftwidth=4</span><br><span class="line">与前一行的缩进方式保持一致</span><br><span class="line">set autoindent</span><br><span class="line">将Tab转为空格</span><br><span class="line">set expandtab</span><br><span class="line">Tab转为空格数量</span><br><span class="line">set softtabstop=2</span><br></pre></td></tr></table></figure>
-<p>8.<strong>显示状态栏</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set laststatus=2</span><br></pre></td></tr></table></figure>
-<p>9.<strong>光标当前位置</strong></p>
+<p>7.<strong>显示状态栏</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#0表示不显示，1表示只在多窗口时显示，2表示显示</span><br><span class="line">set laststatus=2</span><br></pre></td></tr></table></figure>
+<p>10.<strong>光标当前位置</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set ruler</span><br></pre></td></tr></table></figure>
-<p>10.<strong>显示当前模式</strong></p>
+<p>11.<strong>显示当前模式</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set showmode</span><br></pre></td></tr></table></figure>
-<p>11.<strong>显示当前键入指令</strong></p>
+<p>12.<strong>显示当前键入指令</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set showcmd</span><br></pre></td></tr></table></figure>
-<p>12.<strong>使用鼠标</strong></p>
+<p>13.<strong>使用鼠标</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set mouse=a</span><br></pre></td></tr></table></figure>
-<p>13.<strong>开启文件类型检查，载入与该类型对应的缩进规则</strong></p>
+<p>14.<strong>开启文件类型检查，载入与该类型对应的缩进规则</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">filetype indent on</span><br></pre></td></tr></table></figure>
-<p>14.<strong>显示相对行号</strong></p>
+<p>15.<strong>显示相对行号</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set relativenumber</span><br></pre></td></tr></table></figure>
-<p>15.<strong>设置行宽</strong></p>
+<p>16.<strong>设置行宽</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set textwidth=80</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2018/09/vimrc.html">阮一峰的网络日志 (ruanyifeng.com)</a></p>
+<p>17.<strong>自动折行</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set wrap</span><br></pre></td></tr></table></figure>
+<p>19.<strong>不在单词内部折行</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set linebreak</span><br></pre></td></tr></table></figure>
+<p>20.<strong>折行处与编辑窗口的右边缘之间空出的字符数</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set wrapmargin=2</span><br></pre></td></tr></table></figure>
+<p>21.<strong>垂直滚动时光标距离顶部/底部的行数</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set scrolloff=5</span><br></pre></td></tr></table></figure>
+<p>22.<strong>水平滚动时，光标距离行首或行尾的字符数</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set sidescrolloff=15</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="缩进"><a href="#缩进" class="headerlink" title="缩进"></a>缩进</h2><p>1.<strong>下一行的缩进自动与上一行的缩进保持一致</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set autoindent</span><br></pre></td></tr></table></figure>
+<p>2.<strong>设置Tab长度</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set tabstop=4</span><br></pre></td></tr></table></figure>
+<p>3.<strong>设置自动缩进长度</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set shiftwidth=4</span><br></pre></td></tr></table></figure>
+<p>4.<strong>将Tab转为空格</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set expandtab</span><br></pre></td></tr></table></figure>
+<p>5.<strong>Tab转为空格数量</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set softtabstop=2</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><p>1.<strong>高亮匹配括号</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set showmatch</span><br></pre></td></tr></table></figure>
+<p>2.<strong>高亮匹配结果</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set hlsearch</span><br></pre></td></tr></table></figure>
+<p>3.<strong>搜索模式时，每输入一个字符，就自动跳到第一个匹配结果</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set incsearch</span><br></pre></td></tr></table></figure>
+<p>4.<strong>搜索时忽略大小写</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set ignorecase</span><br></pre></td></tr></table></figure>
+<p>5.<strong>如果同时打开了<code>ignorecase</code>，那对于只有一个大写字母的搜索词，将大小写敏感,其他情况大小写不敏感</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set smartcase</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="编辑"><a href="#编辑" class="headerlink" title="编辑"></a>编辑</h2><blockquote>
+<p>1.默认情况下，文件保存时会额外创建一个备份文件，文件名即在原文件名末尾添加<strong>~</strong>。</p>
+<p>2.系统崩溃时会产生交换文件用于恢复，文件名开头是<code>.</code>， 末尾是<strong>.swp</strong>。</p>
+<p>3.撤消文件保留操作历史用于撤消更改，文件名以<code>.un~</code></p>
+</blockquote>
+<p>1.<strong>打开单词拼写检查</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set spell spelllang=en_us</span><br></pre></td></tr></table></figure>
+<p>2.<strong>不创建备份文件</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set nobackup</span><br></pre></td></tr></table></figure>
+<p>3.<strong>不创建交换文件</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set noswapfile</span><br></pre></td></tr></table></figure>
+<p>4.<strong>保留撤销历史</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set undofile</span><br></pre></td></tr></table></figure>
+<p>5.<strong>设置备份文件、交换文件、操作历史文件的保存位置</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set backupdir=~/.vim/.backup//  </span><br><span class="line">set directory=~/.vim/.swp//</span><br><span class="line">set undodir=~/.vim/.undo// </span><br></pre></td></tr></table></figure>
+<p>6.<strong>自动切换工作目录</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set autochdir</span><br></pre></td></tr></table></figure>
+<p>7.<strong>关闭出错bi声</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set noerrorbells</span><br></pre></td></tr></table></figure>
+<p>8.<strong>开启出错屏幕闪烁</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set visualbell</span><br></pre></td></tr></table></figure>
+<p>9.<strong>历史操作条数</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set history=1000</span><br></pre></td></tr></table></figure>
+<p>10.<strong>打开文件监视</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set autoread</span><br></pre></td></tr></table></figure>
+<p>11.<strong>让行尾多余空格（包括 Tab 键）显示成可见方块</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set listchars=tab:»■,trail:■</span><br><span class="line">set list</span><br></pre></td></tr></table></figure>
+<p>12.<strong>命令模式下按下 Tab 键自动补全。第一次按下Tab，显示所有匹配的操作指令；第二次按下Tab，依次选择各个指令</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set wildmenu</span><br><span class="line">set wildmode=longest:list,full</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="键位映射"><a href="#键位映射" class="headerlink" title="键位映射"></a>键位映射</h2><p><strong><em>\</em>按键映射**</strong></p>
+<p><strong><em>\</em>nmap**</strong>：映射一个Normal模式下的键，只有在Normal模式这个命令才会生效。</p>
+<p>例：nmap ,s:source $VIM/_vimrc<cr></p>
+<p>说明：绑定“,s”在Normal模式下映射为“:source$VIM/_vimrc<cr>”命令，即重新读取配置文件_vimrc。</p>
+<p><strong><em>\</em>imap**</strong>：映射一个Insert模式下的键，只有在Insert模式这个命令才会生效。</p>
+<p>例：imap<F11> :r c:\boot.ini<cr></p>
+<p>说明：绑定F11在Insert模式下的映射为“:rc:\boot.ini<cr>”命令，即读取c:\boot.ini文件到当前位置。</p>
+<p><strong><em>\</em>vmap**</strong>：映射一个Visual模式下的键，只有在Visual模式这个命令才会生效。</p>
+<p>例：vmap sb”zbi<b><c-r>z</b><ESC></p>
+<p>说明：选中文字后按sb，选中文字的前后将分别加上<b>和</b>。</p>
+<p>再例：vmap g/y/<c-r>“<cr></p>
+<p>说明：映射“g/”这个组合键匹配选中的字并给予高亮显示。</p>
+<p>cmap:表示在命令行模式下生效</p>
+<p>cmap W w</p>
+<p>cmap Q q</p>
+<p><strong><em>\</em>map**</strong>：用map绑定的键对Normal, Insert, Visual和Command-line模式均有效。</p>
+<p>例：map<F5> :ls<cr>:e #</p>
+<p>说明：映射F5键，使得按下F5会显示当前可编辑文件的buffer，然后提示你输入buffer的行号。（我很喜欢这个！）</p>
+<hr>
+<h2 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h2><p>1.Normal mode：该模式下可以输入，但不能输入文字——这与其它编辑器有很大的差别。</p>
+<p>2.Insertmode:</p>
+<p>在Insert模式下，可以像在其它编辑器中一样输入文字。此时左下角状态列会有“-INSERT-”（-插入-）字样。在Normal模式按下下面的键可以进入 Insert 模式：i（在当前字符的前面插入）；a（在当前字符的后面插入）；o（在当前行的后面添加新的一行）；O（在当前行的上面添加新的一行）。</p>
+<p>\3. Visual mode（反白模式）</p>
+<p>在Visual模式下可以把文字反白起来，此时左下角状态栏会有“-VISUAL-”或“-VISUAL LINE-”或“-VISUALBLOCK-”字样。在Normal模式下按v或V（有什么差别呢？）可以进入Visual模式。</p>
+<p>不管是在Insert模式或Visual模式或其它的什么模式，按Ese键都可以返回Normal模式。</p>
+<p>1.正常模式（normal）</p>
+<p>正常模式是使用vim打开文件时的默认模式，无论在哪种模式下，按下Esc键就会进入正常模式。在这个模式下，可以移动光标，删除某个字符，删除某行，复制多行，粘贴多行。</p>
+<p>x删除光标后的一个字符，X删除光标前的一个字符，nx删除光标后的n个字符，dd剪切光标所在的那一行，ndd剪切光标所在行后的n行，p光标所在行开始，向后粘贴已经复制的内容，P光标所在行开始，向前粘贴已经复制的内容，yy复制光标所在的行，nyy复制光标所在行后的n行，u还原上一次的操作。</p>
+<p>2.命令模式（command）</p>
+<p>在正常模式下输入“:”或“/”进入命令行模式，在该模式下可以进行保存，搜索，替换，退出，显示行号等。</p>
+<p>/word 光标之后查找字符串word，按n向后搜索；?word光标之前查找字符串word，按n向前搜索；:n1,n2/word1/word2/g 将n1到n2行之间的word1替换为word2，不加g则只替换每行的第一个word1； :1,$s/word1/word2/g将文章中的word1替换为word2，不加g则只替换每行的第一个word1； :w保存文本 ；:w!强制保存；在root用户下，文件只读也能保存；:q退出vim ；:q!强制退出；:wq 保存并退出，:set nu 显示行号，:set nonu不显示行号。</p>
+<p>3.插入模式（insert）</p>
+<p>在正常模式下按下i键，进入插入模式，插入模式里可以进行文字的输入，在该模式下按Esc键切换到普通模式。</p>
+<p>4.可视模式（visual）</p>
+<p>可视模式是选中一块区域进行操作，包括删除，替换，复制，粘贴，改变大小写等。</p>
+<p>在正常模式下按v（小写）进入字符文本，按V（大写）进入行文本，按ctrl+v进入块文本。然后使用上下左右键进行操作选中区域。对选中的部分使用d进行删除，y进行复制，p进行粘贴，r进行文本替换，gu转换为小写，gU转换为大写，g~大小写互换。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2018/09/vimrc.html">阮一峰的网络日志</a></p>
 
     </div>
 
@@ -344,7 +441,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Vim%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">Vim配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE"><span class="nav-number">1.1.</span> <span class="nav-text">基础配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">2.</span> <span class="nav-text">参考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Vim%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">Vim配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE"><span class="nav-number">1.1.</span> <span class="nav-text">基础配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%A9%E8%BF%9B"><span class="nav-number">1.2.</span> <span class="nav-text">缩进</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2"><span class="nav-number">1.3.</span> <span class="nav-text">搜索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%BE%91"><span class="nav-number">1.4.</span> <span class="nav-text">编辑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%AE%E4%BD%8D%E6%98%A0%E5%B0%84"><span class="nav-number">1.5.</span> <span class="nav-text">键位映射</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.6.</span> <span class="nav-text">模式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">2.</span> <span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
