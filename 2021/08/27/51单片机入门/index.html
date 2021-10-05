@@ -58,8 +58,11 @@
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/51/p19.png">
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/51/p20.png">
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/51/p21.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/51/p22.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/51/p23.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/51/p24.png">
 <meta property="article:published_time" content="2021-08-27T12:11:44.000Z">
-<meta property="article:modified_time" content="2021-10-05T08:11:11.896Z">
+<meta property="article:modified_time" content="2021-10-05T13:20:33.705Z">
 <meta property="article:author" content="HardStoneqwq">
 <meta property="article:tag" content="8051 microcontroller">
 <meta name="twitter:card" content="summary">
@@ -223,7 +226,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-05 16:11:11" itemprop="dateModified" datetime="2021-10-05T16:11:11+08:00">2021-10-05</time>
+                <time title="修改时间：2021-10-05 21:20:33" itemprop="dateModified" datetime="2021-10-05T21:20:33+08:00">2021-10-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -642,7 +645,7 @@
 <p>密码锁</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;REGX52.H&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;LCD1602.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;Delay.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;MatrixKey.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">char</span> KeyNum;</span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> PassWord,count;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	</span><br><span class="line">	LCD_Init();</span><br><span class="line">	LCD_ShowString(<span class="number">1</span>,<span class="number">1</span>,<span class="string">&quot;PASSWORD:&quot;</span>);</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">		KeyNum=MatrixKey();</span><br><span class="line">		<span class="keyword">if</span>(KeyNum)&#123;   </span><br><span class="line">			<span class="keyword">if</span>(KeyNum&lt;=<span class="number">10</span>)&#123;  <span class="comment">//s1~s10按下,输入密码</span></span><br><span class="line">				<span class="keyword">if</span>(count&lt;<span class="number">4</span>)&#123;  <span class="comment">//输入次数</span></span><br><span class="line">					PassWord*=<span class="number">10</span>; <span class="comment">//密码左移一位</span></span><br><span class="line">					PassWord+= KeyNum%<span class="number">10</span>; <span class="comment">//获取一位密码</span></span><br><span class="line">				&#125;</span><br><span class="line">				count++;</span><br><span class="line">			&#125;</span><br><span class="line">			LCD_ShowNum(<span class="number">2</span>,<span class="number">1</span>,PassWord,<span class="number">4</span>); </span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(KeyNum==<span class="number">11</span>)&#123; <span class="comment">//如果S11按下，确认</span></span><br><span class="line">			<span class="keyword">if</span>(PassWord==<span class="number">2345</span>)&#123;</span><br><span class="line">				LCD_ShowString(<span class="number">1</span>,<span class="number">14</span>,<span class="string">&quot;OK &quot;</span>);</span><br><span class="line">				<span class="comment">//清零</span></span><br><span class="line">				PassWord=<span class="number">0</span>;</span><br><span class="line">				count=<span class="number">0</span>;</span><br><span class="line">				LCD_ShowNum(<span class="number">2</span>,<span class="number">1</span>,PassWord,<span class="number">4</span>); <span class="comment">//更新显示</span></span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span>&#123;</span><br><span class="line">				LCD_ShowString(<span class="number">1</span>,<span class="number">14</span>,<span class="string">&quot;ERR&quot;</span>);</span><br><span class="line">				<span class="comment">//清零</span></span><br><span class="line">				PassWord=<span class="number">0</span>;</span><br><span class="line">				count=<span class="number">0</span>;</span><br><span class="line">				LCD_ShowNum(<span class="number">2</span>,<span class="number">1</span>,PassWord,<span class="number">4</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(KeyNum==<span class="number">12</span>)&#123; <span class="comment">//如果S11按下，取消</span></span><br><span class="line">				PassWord=<span class="number">0</span>;</span><br><span class="line">				count=<span class="number">0</span>;</span><br><span class="line">				LCD_ShowNum(<span class="number">2</span>,<span class="number">1</span>,PassWord,<span class="number">4</span>);</span><br><span class="line">		&#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
-<h2 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h2><p><a target="_blank" rel="noopener" href="http://www.51hei.com/bbs/dpj-103111-1.html">51单片机的定时器T0、T1总结</a></p>
+<h2 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h2><p>1.<strong>定时器</strong></p>
 <blockquote>
 <p>51单片机的定时器属于单片机的内部资源，其电路的连接与运转均在单片机内部运行。</p>
 <ul>
@@ -677,9 +680,25 @@
 <hr>
 <blockquote>
 <p>SYSclk(定时器时钟)：系统时钟，即晶振周期（STC89C52开发板上的晶振一般为12MHz）</p>
-<p>T0 Pin:可由该引脚提供时钟，即T0充当计数器。</p>
+<p>T0 Pin:可由该引脚提供时钟，即T0 Pin作为定时器，T0定时器此时充当计数器。</p>
 <p>分频：如÷12即12MHz/12=1MHz,即一个周期为1μs</p>
-<p>C/$\overline{T}$</p>
+<p>$C$/$\overline{T}$:Counter/Timer，$C$/$\overline{T}$=0连接SYSclk处，$C$/$\overline{T}$=1连接T0。</p>
+</blockquote>
+<hr>
+<p>2.<strong>中断系统</strong></p>
+<blockquote>
+<p>1.中断系统是为使CPU<strong>具有对外界紧急事件的实时处理能力</strong>而设置的。</p>
+<p>2.当CPU正在处理某件事的时候外界发生了紧急事件请求，要求CPU暂停当前工作，转而去处理这个紧急事件，处理完以后，再回到原来被中断的地方，继续原来的工作，这样的过程称为<strong>中断</strong>，实现这种功能的部件称为中断系统，请示CPU中断的请求源称为<strong>中断源</strong>。</p>
+<p>3.微型机的中断系统一般允许多个中断源，当几个中断源同时向CPU请求中断，要求为它服务的时候，这就存在CPU优先响应哪一个中断源请求的问题。通常根据中断源的轻重缓急排队，优先处理最紧急事件的中断请求源，即规定每一个中断源有一个优先级别。<strong>CPU总是先响应优先级最高的中断请求</strong>。</p>
+<p>4.当CPU正在处理一个中断源请求的时候（执行相应的中断服务程序），发生了另外一个优先级比它还高的中断源请求。如果CPU能够暂停对原来中断源的服务程序，转而去处理优先级更高的中断请求源，处理完以后，再回到原低级中断服务程序，这样的过程称为<strong>中断嵌套</strong>。这样的中断系统称为<strong>多级中断系统</strong>，没有中断嵌套功能的中断系统称为<strong>单级中断系统</strong>。</p>
+</blockquote>
+<p><img src="https://zerostione.github.io/ImageUp//Image/Blog/51/p22.png" style="zoom: 50%;" /></p>
+<p><img src="https://zerostione.github.io/ImageUp//Image/Blog/51/p23.png" style="zoom: 67%;" /></p>
+<p><img src="https://zerostione.github.io/ImageUp//Image/Blog/51/p24.png" style="zoom:80%;" /></p>
+<hr>
+<p>3.STC89C52<strong>中断资源</strong></p>
+<blockquote>
+<p>1.</p>
 </blockquote>
 
     </div>
