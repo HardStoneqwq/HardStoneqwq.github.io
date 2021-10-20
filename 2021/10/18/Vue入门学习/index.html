@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Web/Vue/p4.png">
 <meta property="article:published_time" content="2021-10-18T15:04:55.000Z">
-<meta property="article:modified_time" content="2021-10-20T04:17:59.116Z">
+<meta property="article:modified_time" content="2021-10-20T05:58:31.320Z">
 <meta property="article:author" content="HardStoneqwq">
 <meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary">
@@ -193,7 +193,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-20 12:17:59" itemprop="dateModified" datetime="2021-10-20T12:17:59+08:00">2021-10-20</time>
+                <time title="修改时间：2021-10-20 13:58:31" itemprop="dateModified" datetime="2021-10-20T13:58:31+08:00">2021-10-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -240,8 +240,8 @@
 <blockquote>
 <p>1.Vue.js/Vue.min.js</p>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://cn.vuejs.org/js/vue.js">开发版本</a>包含完整的警告和调试模式</li>
-<li><a target="_blank" rel="noopener" href="https://cn.vuejs.org/js/vue.min.js">生产版本</a>删除了警告</li>
+<li><a target="_blank" rel="noopener" href="https://cn.vuejs.org/js/vue.js">开发版本</a>:包含完整的警告和调试模式</li>
+<li><a target="_blank" rel="noopener" href="https://cn.vuejs.org/js/vue.min.js">生产版本</a>:删除了警告</li>
 </ul>
 <p>2.CDN</p>
 </blockquote>
@@ -249,6 +249,14 @@
 <p>2.npm</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vue</span><br></pre></td></tr></table></figure>
 <p>3.<a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/installation.html#Vue-Devtools">Vue Devtools</a>:允许在浏览器上更友好的界面中审查和调试Vue应用(浏览器扩展)。</p>
+<p>4.Live Sever:<a target="_blank" rel="noopener" href="http://127.0.0.1:5500/">listing directory</a></p>
+<hr>
+<h1 id="初识Vue"><a href="#初识Vue" class="headerlink" title="初识Vue"></a>初识Vue</h1><blockquote>
+<p>1.每个Vue应用都是通过用<code>Vue</code>函数创建一个新的<strong>Vue实例</strong>开始。</p>
+<p>2.容器中的代码(Vue模板)仍然符合html规范(含有Vue语法)。</p>
+<p>3.Vue实例与容器是一一对应的。</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>初识Vue<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--引入Vue--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/js/vue.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--容器--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;demo&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--&#123;&#123;js表达法式&#125;&#125; 读取data中的所有属性--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello &#123;&#123;name.toUpperCase()&#125;&#125; &#123;&#123;address&#125;&#125; &#123;&#123;Date.now()&#125;&#125; &#123;&#123;2*5&#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    Vue.config.productionTip=<span class="literal">false</span>; <span class="comment">//设置为false以阻止vue在启动时生成生产提示。</span></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="comment">//创建Vue实例</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">/*const vm =*/</span> <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">        <span class="attr">el</span>: <span class="string">&#x27;#demo&#x27;</span>, <span class="comment">//el指定当前Vue实例为哪个容器服务，值通常为css选择器字符串 document.getElementById(&#x27;root&#x27;)</span></span></span><br><span class="line"><span class="javascript">        <span class="attr">data</span>:&#123;       <span class="comment">//data存储数据，数据供el所指定的容器使用</span></span></span><br><span class="line"><span class="javascript">            <span class="attr">name</span>:<span class="string">&#x27;World&#x27;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="attr">address</span>:<span class="string">&#x27;Beijing&#x27;</span></span></span><br><span class="line"><span class="javascript">        &#125;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">    &#125;)</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <hr>
 
     </div>
@@ -330,7 +338,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">Vue简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="nav-number">2.</span> <span class="nav-text">Vue环境搭建</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">Vue简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="nav-number">2.</span> <span class="nav-text">Vue环境搭建</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9D%E8%AF%86Vue"><span class="nav-number">3.</span> <span class="nav-text">初识Vue</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
