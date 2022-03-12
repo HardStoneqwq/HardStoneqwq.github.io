@@ -156,233 +156,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/11/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zerostione.github.io/ImageUp//Image/Blog/Use/au.jpg">
-      <meta itemprop="name" content="HardStoneqwq">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HardStone">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/01/11/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-title-link" itemprop="url">操作系统期末复习</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-01-11 22:52:05 / 修改时间：22:52:54" itemprop="dateCreated datePublished" datetime="2022-01-11T22:52:05+08:00">2022-01-11</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="选择题"><a href="#选择题" class="headerlink" title="选择题"></a>选择题</h2><p>1.通过操作系统对外围设备的管理实现了设备处理的一致性。 这种一致性是指<strong>用户可不考虑设备的具体物理特性</strong>。</p>
-<p>2.若系统中有五个并发进程涉及某个相同的变量A， 则变量A的相关临界区是由<strong>5个</strong>临界区构成。</p>
-<blockquote>
-<p>临界资源是诸进程之间应采取互斥方式访问的，也就是一次只允许一个进程访问的资源，可以为硬件，软件，变量，数据，表格，队列等，并不单指硬件资源。临界区就是每个进程中访问临界资源的那段代码。五个并发进程都涉及了变量A，每一个进程中都有访问变量A的代码，所以每个进程中都有相关临界区，因此是五个临界区构成。</p>
-</blockquote>
-<p>3.设有3个作业，它们同时到达，运行时间分别为T1、T2和T3, 且T1≤T2≤T3，若它们在单处理机系统中按单道运行，采用短作业优先调度算法，则平均周转时间为<strong>T3/3+2*T2/3+T1</strong>。</p>
-<blockquote>
-<ul>
-<li><p>短作业优先调度算法(SPF): 优先调度并处理短作业,所谓短是指作业的运行时间短。而在作业未投入运行时,并不能知道它实际的运行时间的长短,因此需要用户在提交作业时同时提交作业运行时间的估计值。</p>
-</li>
-<li><p>周转时间：程序从进入系统到完成的时间总量</p>
-</li>
-<li><p>本题实际为(T3+2*T1+T3*3)/3,即总时间T3需要等待T2和T1的运行，T2需要等待T1的运行。  </p>
-</li>
-</ul>
-</blockquote>
-<p>4.一个进程释放一种资源将有可能导致一个或几个进程<strong>由阻塞变就绪</strong>。</p>
-<blockquote>
-<p>阻塞态不能直接变为运行态，只有就绪态可以转为运行态,结合信号量知识即可。</p>
-</blockquote>
-<p>5.页式存储管理中，每取一条指令或取一个操作数，访问主存的次数最多是<strong>2次</strong>。</p>
-<blockquote>
-<p>页式管理结构分两层，一层是页表，管理着页号与实际内存地址的映射关系；另一层是实际的内存数据。 </p>
-<p>应用程序本身保存的是逻辑页号，访问OS需要经历两步： </p>
-<ol>
-<li><p>查询页表得到真正的物理地址； </p>
-</li>
-<li><p>查询物理地址获取数据。 </p>
-</li>
-</ol>
-<p>因此最多需要访问2次。 </p>
-<p>现代OS在操作（1）层加入了具备并行查询能力的缓存——快表，能够加快物理地址的查询速度,即最少1次，最多2次。</p>
-</blockquote>
-<p>6.不能防止死锁的资源分配策略是<strong>互斥使用分配方式</strong>。</p>
-<blockquote>
-<p>1.剥夺式分配方式、按序分配方式、静态分配方式可以防止死锁。</p>
-<p>2.死锁的必要条件：</p>
-<ul>
-<li>互斥</li>
-<li>占用且等待</li>
-<li>不可抢占</li>
-</ul>
-<p>还需要第四个条件：</p>
-<ul>
-<li>循环等待</li>
-</ul>
-</blockquote>
-<p>7.通常不采用<strong>从非死锁进程处抢夺资源</strong>方法来解除死锁。</p>
-<blockquote>
-<p><strong>从非死锁进程处抢夺资源</strong>方法可能无法解除死锁。</p>
-</blockquote>
-<p>8.某系统采用了银行家算法，<strong>系统处于不安全状态时可能会发生死锁</strong>。</p>
-<p>9.CPU输出数据的速度远远高于打印机的打印速度，为解决这一矛盾， 可采用<strong>缓冲技术</strong>。</p>
-<p>10.对磁盘进行移臂调度的目的是为了缩短<strong>寻找</strong>时间。</p>
-<blockquote>
-<p>磁盘读写操作的时间由寻找（寻道）时间、延迟时间和传输时间决定。</p>
-<p>在磁盘存取时间的计算中，寻道时间与磁盘调度算法相关。</p>
-</blockquote>
-<p>11.在可变分区存储管理中， 最优适应分配算法要求对空闲区表项按<strong>尺寸从小到大</strong>进行排列</p>
-<blockquote>
-<p>最佳适应算法的空白区(空闲区)是按<strong>大小递增</strong>顺序排列，首次适应算法的空白区是按地址递增顺序排列的</p>
-</blockquote>
-<p>12.用户程序中的输入、 输出操作实际上是由<strong>操作系统</strong>完成。</p>
-<hr>
-<p>14.在可变式分区分配方案中，某一作业完成后，系统收回其主存空间，并与相邻空闲区合并，为此需修改空闲区表， 造成空闲区数减 1 的情况是<strong>有上邻空闲区，也有下邻空闲区</strong>。</p>
-<blockquote>
-<p>收回其主存空间，由于有上邻空闲区，也有下邻空闲区,该区将原上邻空闲区和下邻空闲区一起合并为1个，导致空闲区数反而减1。</p>
-</blockquote>
-<p>15.操作系统中利用信号量和P、V操作，<strong>可实现进程的互斥和同步</strong>。 </p>
-<p>16.<strong>一个进程可拥有若干个线程</strong></p>
-<p>17.在请求式分页系统中，用五状态进程模型对进程状态进行描述，当前指令访问发生缺页，则此进程会发生的状态变迁为<strong>运行-&gt;阻塞</strong>。</p>
-<p>18.著名的操作系统中，属于多用户、分时系统的是<strong>UNIX系统</strong>。</p>
-<p>19.在简单分页内存管理中，每取一次数据，要访问<strong>2</strong>次内存。</p>
-<blockquote>
-<p>查页表一次，读写一次</p>
-</blockquote>
-<p>20.SPOOLing技术可以实现设备的<strong>虚拟</strong>分配。 </p>
-<p>21.系统抖动是指<strong>被调出的页面又立刻被调入所形成的频繁调入调出现象</strong>。</p>
-<p>22.伙伴系统中某已经分配的块大小为K，其起始地址为A，在用二叉树所描述当前内存分区的树中该块是左节点，则其伙伴地址为<strong>A+K</strong>。</p>
-<p>23.进程控制块的英文缩写是<strong>PCB</strong>。</p>
-<blockquote>
-<p>进程控制块（Processing Control Block），是操作系统核心中一种数据结构，主要表示进程状态。</p>
-</blockquote>
-<p>24.在下述文件系统目录结构中，能够用多条路径访问同一文件(或目录)的目录结构是<strong>非循环图目录</strong>。</p>
-<p>25.作业调度的关键在于<strong>选择恰当的作业调度算法</strong>。</p>
-<p>26.在分页存储管理系统中，从页号到物理块号的地址映射是通过<strong>页表</strong>实现的。 </p>
-<blockquote>
-<p>在页式管理中，<strong>页表的作用是实现从页号到物理块号的地址映射</strong>，存储页表的作用是记录内存页面的分配情况</p>
-</blockquote>
-<hr>
-<p>28.发生进程切换的过程中上下文切换一共<strong>2</strong>次。</p>
-<p>29.在操作系统中，进程的最基本的特征是<strong>动态性和并发性</strong>。 </p>
-<p>30.系统用五状态进程模型对进程状态进行描述，则此模型下的处理器调度不包括调度.</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/15/EDA%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zerostione.github.io/ImageUp//Image/Blog/Use/au.jpg">
-      <meta itemprop="name" content="HardStoneqwq">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HardStone">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/15/EDA%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">EDA入门学习</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-11-15 15:57:34 / 修改时间：16:19:48" itemprop="dateCreated datePublished" datetime="2021-11-15T15:57:34+08:00">2021-11-15</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hardware/" itemprop="url" rel="index"><span itemprop="name">hardware</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>电子设计自动化（Electronic design automation，EDA）是指利用计算机辅助设计（CAD）软件，来完成超大规模集成电路（VLSI）芯片的功能设计、综合、验证、物理设计（包括布局、布线、版图、设计规则检查等）等流程的设计方式。</p>
-<p><img src="https://zerostione.github.io/ImageUp//Image/Blog/EDA/n1.jpg" style="zoom: 50%;" /></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/11/15/EDA%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/18/Vue%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -465,7 +238,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/14/HTTP%E5%88%9D%E6%AD%A5%E5%85%A5%E9%97%A8/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/06/51%E5%8D%95%E7%89%87%E6%9C%BA%E5%85%A5%E9%97%A8P2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://zerostione.github.io/ImageUp//Image/Blog/Use/au.jpg">
@@ -479,7 +252,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/10/14/HTTP%E5%88%9D%E6%AD%A5%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">HTTP入门</a>
+            <a href="/2021/10/06/51%E5%8D%95%E7%89%87%E6%9C%BA%E5%85%A5%E9%97%A8P2/" class="post-title-link" itemprop="url">51单片机入门P2</a>
         </h2>
 
         <div class="post-meta">
@@ -489,14 +262,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-10-14 23:43:14" itemprop="dateCreated datePublished" datetime="2021-10-14T23:43:14+08:00">2021-10-14</time>
+              <time title="创建时间：2021-10-06 19:47:02" itemprop="dateCreated datePublished" datetime="2021-10-06T19:47:02+08:00">2021-10-06</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-15 00:01:52" itemprop="dateModified" datetime="2021-10-15T00:01:52+08:00">2021-10-15</time>
+                <time title="修改时间：2021-10-14 23:59:38" itemprop="dateModified" datetime="2021-10-14T23:59:38+08:00">2021-10-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -504,7 +277,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web/" itemprop="url" rel="index"><span itemprop="name">Web</span></a>
+                  <a href="/categories/hardware/" itemprop="url" rel="index"><span itemprop="name">hardware</span></a>
                 </span>
             </span>
 
@@ -519,11 +292,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>超文本传输协议（HyperText Transfer Protocol）是一种用于分布式、协作式和超媒体信息系统的应用层协议。HTTP是万维网的数据通信的基础。HTTP的发展是由Tim Berners-Lee于1989年在欧洲核子研究组织（CERN）所发起。HTTP的标准制定由万维网协会（World Wide Web Consortium，W3C）和互联网工程任务组（Internet Engineering Task Force，IETF）进行协调，最终发布了一系列的RFC，其中最著名的是1999年6月公布的 RFC 2616，定义了HTTP协议中现今广泛使用的一个版本——HTTP 1.1。 HTTP/2标准于2015年5月以RFC7540正式发表，取代HTTP 1.1成为HTTP的实现标准。</p>
-<p><img src="https://zerostione.github.io/ImageUp//Image/Blog/Web/HTTP/p1.png"  /></p>
+          <p>单片机，全称单片微型计算机（single-chip microcomputer），又称微控制器单元（microcontroller unit），是把中央处理器、存储器、定时/计数器（timer/counter）、各种输入输出接口等都集成在一块集成电路芯片上的微型计算机。与应用在个人电脑中的通用型微处理器相比，它更强调自供应（不用外接硬件）和节约成本。它的最大优点是体积小，可放在仪表内部，但存储量小，输入输出接口简单，功能较低。</p>
+<p><img src="https://zerostione.github.io/ImageUp//Image/Blog/51/n9.jpg" style="zoom: 67%;" /></p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/10/14/HTTP%E5%88%9D%E6%AD%A5%E5%85%A5%E9%97%A8/#more" rel="contents">
+              <a class="btn" href="/2021/10/06/51%E5%8D%95%E7%89%87%E6%9C%BA%E5%85%A5%E9%97%A8P2/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -547,7 +320,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/07/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BF%A1%E6%81%AF%E6%A3%80%E7%B4%A2%E5%85%A5%E9%97%A8/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/26/Linux%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://zerostione.github.io/ImageUp//Image/Blog/Use/au.jpg">
@@ -561,7 +334,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/10/07/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BF%A1%E6%81%AF%E6%A3%80%E7%B4%A2%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">搜索引擎信息检索入门</a>
+            <a href="/2021/09/26/Linux%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97/" class="post-title-link" itemprop="url">Linux学习指南</a>
         </h2>
 
         <div class="post-meta">
@@ -571,14 +344,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-10-07 12:21:57" itemprop="dateCreated datePublished" datetime="2021-10-07T12:21:57+08:00">2021-10-07</time>
+              <time title="创建时间：2021-09-26 21:00:40" itemprop="dateCreated datePublished" datetime="2021-09-26T21:00:40+08:00">2021-09-26</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-08 16:48:35" itemprop="dateModified" datetime="2021-10-08T16:48:35+08:00">2021-10-08</time>
+                <time title="修改时间：2021-09-30 12:20:44" itemprop="dateModified" datetime="2021-09-30T12:20:44+08:00">2021-09-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -586,7 +359,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tutorial/" itemprop="url" rel="index"><span itemprop="name">tutorial</span></a>
+                  <a href="/categories/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
                 </span>
             </span>
 
@@ -601,12 +374,176 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><strong>搜索引擎</strong>（search engine）是一种信息检索系统，旨在协助搜索存储在计算机系统中的信息。搜索结果一般被称为<code>hits</code>，通常会以表单的形式列出。网络搜索引擎是最常见、公开的一种搜索引擎，其功能为搜索万维网上储存的信息。</p>
-<p><strong>网络搜索引擎</strong>（web search engine）是设计在万维网上进行搜索，意思是指自动从万维网搜集特定的信息，提供给用户进行查询的系统。搜索结果通常会以行列式的链接展示，亦称为搜索结果页(Search engine results page，SERP)。这些消息链接可能是连至网页、图像、视频、信息图表、文章、研究论文或其他类型的文件。 一些搜索引擎亦会在其他的数据库或目录中搜索可用数据。与依靠人工维持的网站目录不同，搜索引擎进行的实时搜索，是以网络爬虫(web crawler)运行算法得出来,没法被搜索出来的是称为深网(deep web)。</p>
-<p><img src="https://zerostione.github.io/ImageUp//Image/Blog/SE/p1.jpg" style="zoom:80%;" /></p>
+          <p><img src="https://zerostione.github.io/ImageUp//Image/Blog/Linux/p1.png" style="zoom: 25%;" /></p>
+<p>Linux是一种自由和开放源码的类UNIX操作系统。该操作系统的内核由Linus Torvalds在1991年10月5日首次发布，加上用户空间的应用程序之后，成为Linux操作系统。只要遵循GNU通用公共许可证（GPL），任何个人和机构都可以自由地使用Linux的所有底层源代码，也可以自由地修改和再发布。如今Linux常用来指基于Linux的完整操作系统，内核则改以Linux内核称之。由于这些支持用户空间的系统工具和库主要由Richard Stallman于1983年发起的GNU计划提供，自由软件基金会提议将其组合系统命名为GNU/Linux。</p>
+<p>主流Linux发布版包括Debian（派生版本Ubuntu、Linux Mint）、Fedora（相关版本Red Hat Enterprise Linux、CentOS）和openSUSE等。PC使用的Linux发行版通常包含X Window和一个相应的桌面环境，如GNOME或KDE。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/10/07/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BF%A1%E6%81%AF%E6%A3%80%E7%B4%A2%E5%85%A5%E9%97%A8/#more" rel="contents">
+              <a class="btn" href="/2021/09/26/Linux%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/25/RaspberryPi3B%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://zerostione.github.io/ImageUp//Image/Blog/Use/au.jpg">
+      <meta itemprop="name" content="HardStoneqwq">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HardStone">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/25/RaspberryPi3B%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">RaspberryPi3B使用总结</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-09-25 21:08:59" itemprop="dateCreated datePublished" datetime="2021-09-25T21:08:59+08:00">2021-09-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-09-29 15:47:50" itemprop="dateModified" datetime="2021-09-29T15:47:50+08:00">2021-09-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hardware/" itemprop="url" rel="index"><span itemprop="name">hardware</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>树莓派<a target="_blank" rel="noopener" href="https://www.raspberrypi.org/">Raspberry Pi</a>英国树莓派基金会开发的微型单板计算机，目的是以低价硬件及自由软件促进学校的基本计算机科学教育。树莓派系列计算机每一代均使用博通（Broadcom）出产的ARM架构处理器，如今生产的机型（树莓派4B）内存在2GB和8GB之间，主要TF卡作为系统存储媒体（初代使用SD卡），配备USB接口和HDMI的视频输出（支持声音输出），内置Ethernet/WLAN/Bluetooth网络链接的方式，并且可使用多种操作系统。产品线型号分为A型、B型、Zero型和ComputeModule计算卡。Raspberry Pi OS是官方推出的操作系统，适用于所有型号的树莓派，树莓派基金会网站也提供了Ubuntu MATE、Ubuntu Core、Ubuntu Server、OSMC等第三方系统供大众下载。</p>
+<p><img src="https://zerostione.github.io/ImageUp//Image/Blog/Rasp/p1.png" style="zoom: 50%;" /></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/09/25/RaspberryPi3B%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/09/MySQL%E5%85%A5%E9%97%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://zerostione.github.io/ImageUp//Image/Blog/Use/au.jpg">
+      <meta itemprop="name" content="HardStoneqwq">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HardStone">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/09/MySQL%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">MySQL入门</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-09-09 22:44:02" itemprop="dateCreated datePublished" datetime="2021-09-09T22:44:02+08:00">2021-09-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-09-11 18:01:57" itemprop="dateModified" datetime="2021-09-11T18:01:57+08:00">2021-09-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Database/" itemprop="url" rel="index"><span itemprop="name">Database</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>MySQL是一个关系型数据库管理系统，由瑞典MySQLAB 公司开发，属于 Oracle 旗下产品。MySQL 是最流行的关系型数据库管理系统之一，在 WEB 应用方面，MySQL是最好的 RDBMS (Relational Database Management System，关系数据库管理系统) 应用软件之一。</p>
+<p><img src="https://zerostione.github.io/ImageUp//Image/Blog/MySQL/p1.png" style="zoom: 33%;" /></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/09/09/MySQL%E5%85%A5%E9%97%A8/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -629,7 +566,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -697,20 +634,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -796,6 +733,59 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
